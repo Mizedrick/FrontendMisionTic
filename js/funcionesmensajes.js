@@ -10,10 +10,7 @@ function validaesVacio(dato){
 function validar(){
     //obtiene valores
     let id = $("#id").val();
-    let name = $("#name").val();
-    let brand = $("#brand").val();
-    let model = $("#model").val();
-    let category = $("#category").val();
+    let messagetext = $("#messagetext").val();
     let errores="";
     $("#mensajes").html("");
 
@@ -24,23 +21,11 @@ function validar(){
         $("#mensajes").show(500);
         $("#id").focus();
         return false;
-    }else if( validaesVacio(brand)) {
-        errores="brand vacio<br>";
+    }else if( validaesVacio(messagetext)) {
+        errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
-        $("#brand").focus();
-        return false;
-    }else if( validaesVacio(model)) {  
-        errores="model vacio<br>";
-        $("#mensajes").html(errores);
-        $("#mensajes").show(500);
-        $("#model").focus();
-        return false;
-    }else if( validaesVacio(category)) { 
-        errores="category vacio<br>";
-        $("#mensajes").html(errores);
-        $("#mensajes").show(500);
-        $("#category").focus();
+        $("#name").focus();
         return false;
     }else{
         $("#mensajes").html("");
@@ -59,10 +44,7 @@ function validar(){
  function validarEditar(){
     //obtiene valores
     let id = $("#idEdit").val();
-    let name = $("#nameEdit").val();
-    let brand = $("#brandEdit").val();
-    let model = $("#modelEdit").val();
-    let category = $("#categoryEdit").val();
+    let messagetext = $("#messagetextEdit").val();
     let errores="";
     $("#mensajes").html("");
 
@@ -73,23 +55,11 @@ function validar(){
         $("#mensajes").show(500);
         $("#idEdit").focus();
         return false;
-    }else if( validaesVacio(brand)) {
-        errores="brand vacio<br>";
+    }else if( validaesVacio(messagetext)) {
+        errores="messagetext vacio<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
-        $("#brandEdit").focus();
-        return false;
-    }else if( validaesVacio(model)) {  
-        errores="model vacio<br>";
-        $("#mensajes").html(errores);
-        $("#mensajes").show(500);
-        $("#modelEdit").focus();
-        return false;
-    }else if( validaesVacio(category)) { 
-        errores="category vacio<br>";
-        $("#mensajes").html(errores);
-        $("#mensajes").show(500);
-        $("#categoryEdit").focus();
+        $("#nameEdit").focus();
         return false;
     }else{
         $("#mensajes").html("");

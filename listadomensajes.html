@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensajes</title>
+    <link rel="stylesheet" href="css/stylesBicis.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listarmensajes.js"></script>
+    <script src="js/registrarmensajes.js"></script>
+    <script src="js/editarmensajes.js"></script>
+    <script src="js/borrarmensajes.js"></script>
+    <script src="js/funcionesmensajes.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <h1>Mision Tic 2022</h1>
+        </section>
+
+        <div id="mensajes"></div>
+        <br>
+        <a href="index.html"><img src="Imag/back.png" alt="Regresar"></a>
+        <br><br>
+        <button class="botones" id="nuevoRegistro" onclick="activaNuevo();">Registrar Mensaje</button>
+        <br><br>
+
+        <div id="listado"></div>
+
+        <div id="nuevo">
+            <section class="formularioRegistro">
+                <h4>Registrar Mensaje</h4>
+                <input class="inputs" type="number" id="id" placeholder="id">
+                <br>
+                <textarea class="inputs" id="messagetext" placeholder="messagetext" rows="4" cols="50"></textarea>
+                <br>
+                <button class="botones" onclick="registrar();">Guardar</button>
+                <button class="botones" onclick="estadoInicial();">Cancelar</button>
+            </section>
+        </div>
+
+        <div id="editar">
+            <section class="formularioRegistro">
+                <h4>Editar Mensaje</h4>
+                <input class="inputs" type="number" id="idEdit" placeholder="id">
+                <br>
+                <textarea class="inputs" id="messagetextEdit" placeholder="messagetext" rows="4" cols="50"></textarea>
+                <br>
+                <button class="botones" onclick="actualizar();">Guardar</button>
+                <button class="botones" onclick="estadoInicial();">Cancelar</button>
+            </section>
+        </div>
+        
+    </header>
+</body>
+
+</html>

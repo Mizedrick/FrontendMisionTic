@@ -11,9 +11,8 @@ function validar(){
     //obtiene valores
     let id = $("#id").val();
     let name = $("#name").val();
-    let brand = $("#brand").val();
-    let model = $("#model").val();
-    let category = $("#category").val();
+    let email = $("#email").val();
+    let age = $("#age").val();
     let errores="";
     $("#mensajes").html("");
 
@@ -24,23 +23,23 @@ function validar(){
         $("#mensajes").show(500);
         $("#id").focus();
         return false;
-    }else if( validaesVacio(brand)) {
-        errores="brand vacio<br>";
+    }else if( validaesVacio(name)) {
+        errores="name vacio<br>";
+        $("#mensajes").html(errores);
+        $("#mensajes").show(500);
+        $("#name").focus();
+        return false;
+    }else if( validaesVacio(email)) {
+        errores="email vacio<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
         $("#brand").focus();
         return false;
-    }else if( validaesVacio(model)) {  
-        errores="model vacio<br>";
+    }else if( validaesVacio(age)) {  
+        errores="age vacio<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
         $("#model").focus();
-        return false;
-    }else if( validaesVacio(category)) { 
-        errores="category vacio<br>";
-        $("#mensajes").html(errores);
-        $("#mensajes").show(500);
-        $("#category").focus();
         return false;
     }else{
         $("#mensajes").html("");
@@ -60,9 +59,8 @@ function validar(){
     //obtiene valores
     let id = $("#idEdit").val();
     let name = $("#nameEdit").val();
-    let brand = $("#brandEdit").val();
-    let model = $("#modelEdit").val();
-    let category = $("#categoryEdit").val();
+    let email = $("#emailEdit").val();
+    let age = $("#ageEdit").val();
     let errores="";
     $("#mensajes").html("");
 
@@ -73,23 +71,23 @@ function validar(){
         $("#mensajes").show(500);
         $("#idEdit").focus();
         return false;
-    }else if( validaesVacio(brand)) {
-        errores="brand vacio<br>";
+    }else if( validaesVacio(name)) {
+        errores="name vacio<br>";
+        $("#mensajes").html(errores);
+        $("#mensajes").show(500);
+        $("#nameEdit").focus();
+        return false;
+    }else if( validaesVacio(email)) {
+        errores="email vacio<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
         $("#brandEdit").focus();
         return false;
-    }else if( validaesVacio(model)) {  
-        errores="model vacio<br>";
+    }else if( validaesVacio(age)) {  
+        errores="age vacio<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
         $("#modelEdit").focus();
-        return false;
-    }else if( validaesVacio(category)) { 
-        errores="category vacio<br>";
-        $("#mensajes").html(errores);
-        $("#mensajes").show(500);
-        $("#categoryEdit").focus();
         return false;
     }else{
         $("#mensajes").html("");
