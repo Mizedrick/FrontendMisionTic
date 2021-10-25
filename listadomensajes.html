@@ -33,10 +33,13 @@
         <div id="nuevo">
             <section class="formularioRegistro">
                 <h4>Registrar Mensaje</h4>
-                <input class="inputs" type="number" id="id" placeholder="id">
-                <br>
-                <textarea class="inputs" id="messagetext" placeholder="messagetext" rows="4" cols="50"></textarea>
-                <br>
+                <select class="inputs" id="client" placeholder="Cliente">
+                
+                </select>
+                <select class="inputs" id="bike" placeholder="Bicicleta">
+                    
+                </select>
+                <textarea class="inputs" id="messagetext" placeholder="messagetext" rows="4" cols="50" onkeydown="upperCaseF(this)"></textarea>
                 <button class="botones" onclick="registrar();">Guardar</button>
                 <button class="botones" onclick="estadoInicial();">Cancelar</button>
             </section>
@@ -46,10 +49,8 @@
             <section class="formularioRegistro">
                 <h4>Editar Mensaje</h4>
                 <input class="inputs" type="number" id="idEdit" placeholder="id">
-                <br>
-                <textarea class="inputs" id="messagetextEdit" placeholder="messagetext" rows="4" cols="50"></textarea>
-                <br>
-                <button class="botones" onclick="actualizar();">Guardar</button>
+                <textarea class="inputs" id="messagetextEdit" placeholder="messagetext" rows="4" cols="50" onkeydown="upperCaseF(this)"></textarea>
+                <button class="botones" onclick="actualizar();">Editar</button>
                 <button class="botones" onclick="estadoInicial();">Cancelar</button>
             </section>
         </div>

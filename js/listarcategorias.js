@@ -1,11 +1,9 @@
 //$(document).ready(function () {
-//carga la librería javascript de jquery cuando se carga la página barcos.html por completo
+//carga la librería javascript de jquery cuando se carga la página bike.html por completo
 //cuando carga la página html se ejecuta la función: listar()
 $(document).ready(function () {
     //configura el aspecto inicial de la pagina
     estadoInicial();
-    //ejecuta función para enviar petición al ws
-    listar();
 });
 
 //Esta función ejecuta la petición asincrona al servidor de Oracle, envia una
@@ -13,9 +11,8 @@ $(document).ready(function () {
 function listar() {
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "http://localhost:8081/api/Client/all",
-        //url: "http://144.22.57.52:8081/api/Client/all",
-        
+        url: "http://localhost:8081/api/Category/all",
+        //
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
         //si el metodo del servicio recibe datos, es necesario definir el parametro adicional
@@ -47,7 +44,7 @@ function listar() {
 
         // código a ejecutar sin importar si la petición falló o no
         complete: function (xhr, status) {
-            $("#mensajes").html("Obteniendo listado de clientes");
+            $("#mensajes").html("Obteniendo listado de Categorías...");
             $("#mensajes").hide(1000);
         }
     });
@@ -67,9 +64,8 @@ function listarRespuesta(items) {
     //encabezados o títulos de la tabla
     var tabla = `<table border="1">
                   <tr>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Edad</th>
+                    <th>Categoría</th>
+                    <th>Descripción</th>
                     <th colspan="2">Acciones</th>
                   </tr>`;
                   
@@ -77,10 +73,9 @@ function listarRespuesta(items) {
     for (var i=0; i < items.length; i++) {
         tabla +=`<tr>
                    <td>${items[i].name}</td>
-                   <td>${items[i].email}</td>
-                   <td>${items[i].age}</td>
-                   <td><button class="botonesLista" onclick="editarRegistro(${items[i].idClient})">Editar</button></td>
-                   <td><button class="botonesLista" onclick="borrarRegistro(${items[i].idClient})">Borrar</button></td>
+                   <td>${items[i].description}</td>
+                   <td><button class="botonesLista" onclick="editarRegistro(${items[i].id})">Editar</button></td>
+                   <td><button class="botonesLista" onclick="borrarRegistro(${items[i].id})">Borrar</button></td>
                    </tr>`;
     }
 
@@ -99,12 +94,9 @@ function estadoInicial(){
     $("#nuevoRegistro").show(500)
 
     //limpia el contenido de los campos del formulario nuevo
-    $("#name").val("");
-    $("#email").val("");
-    $("#password").val("");
-    $("#age").val("");
-}
+    $("#name").val("")
+    $("#description").val("")
 
-function mostrarmensaje(){
-    alert("Opción no impplementada hasta el reto 4...")
+    //ejecuta función para enviar petición al ws
+    listar();
 }

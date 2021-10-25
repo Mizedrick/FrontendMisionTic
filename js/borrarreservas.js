@@ -7,7 +7,7 @@ function borrarRegistro(llaveRegistro) {
 
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "http://localhost:8081/api/Bike/"+llaveRegistro,
+        url: "http://localhost:8081/api/Reservation/"+llaveRegistro,
 
         // la información a enviar
         // (también es posible utilizar una cadena de datos)

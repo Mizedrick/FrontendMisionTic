@@ -13,8 +13,8 @@ $(document).ready(function () {
 function listar() {
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "http://localhost:8081/api/Client/all",
-        //url: "http://144.22.57.52:8081/api/Client/all",
+        url: "http://localhost:8081/api/Reservation/all",
+        //url: "http://144.22.57.52:8081/api/Reservation/all",
         
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
@@ -47,7 +47,7 @@ function listar() {
 
         // código a ejecutar sin importar si la petición falló o no
         complete: function (xhr, status) {
-            $("#mensajes").html("Obteniendo listado de clientes");
+            $("#mensajes").html("Obteniendo listado de mensajes...");
             $("#mensajes").hide(1000);
         }
     });
@@ -67,20 +67,24 @@ function listarRespuesta(items) {
     //encabezados o títulos de la tabla
     var tabla = `<table border="1">
                   <tr>
-                    <th>Nombre</th>
-                    <th>Email</th>
-                    <th>Edad</th>
+                    <th>Inicio</th>
+                    <th>Devolución</th>
+                    <th>Status</th>
+                    <th>Cliente</th>
+                    <th>Bicicleta</th>
                     <th colspan="2">Acciones</th>
                   </tr>`;
                   
     //recorre el arreglo de 'items' y construye dinamicamente la fila de datos de la tabla
     for (var i=0; i < items.length; i++) {
         tabla +=`<tr>
-                   <td>${items[i].name}</td>
-                   <td>${items[i].email}</td>
-                   <td>${items[i].age}</td>
-                   <td><button class="botonesLista" onclick="editarRegistro(${items[i].idClient})">Editar</button></td>
-                   <td><button class="botonesLista" onclick="borrarRegistro(${items[i].idClient})">Borrar</button></td>
+                   <td>${items[i].startDate}</td>
+                   <td>${items[i].devolutionDate}</td>
+                   <td>${items[i].status}</td>
+                   <td>${items[i].client.name}</td> 
+                   <td>${items[i].bike.name}</td> 
+                   <td><button class="botonesLista" onclick="editarRegistro(${items[i].idReservation})">Editar</button></td>
+                   <td><button class="botonesLista" onclick="borrarRegistro(${items[i].idReservation})">Borrar</button></td>
                    </tr>`;
     }
 
@@ -99,12 +103,11 @@ function estadoInicial(){
     $("#nuevoRegistro").show(500)
 
     //limpia el contenido de los campos del formulario nuevo
-    $("#name").val("");
-    $("#email").val("");
-    $("#password").val("");
-    $("#age").val("");
+    $("#id").val(""),
+    $("#messagetext").val("")
+    listar();
 }
 
 function mostrarmensaje(){
-    alert("Opción no impplementada hasta el reto 4...")
+    alert("Opción no implementada hasta el reto 4...")
 }

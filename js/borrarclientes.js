@@ -4,22 +4,15 @@
     de la petición registro a eliminar. El tipo de petición es DELETE
 */
 function borrarRegistro(llaveRegistro) {
-    //crea un objeto javascript
-    let datos={
-        id: llaveRegistro
-    }
-
-    //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
-    let datosPeticion = JSON.stringify(datos);
 
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "https://gf7c124a9e6c768-db202109231826.adb.sa-vinhedo-1.oraclecloudapps.com/ords/admin/client/client",
+        url: "http://localhost:8081/api/Client/"+llaveRegistro,
 
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
         //si el metodo del servicio recibe datos, es necesario definir el parametro adicional
-        data : datosPeticion,
+        //data : datosPeticion,
 
         // especifica el tipo de petición http: POST, GET, PUT, DELETE
         type: 'DELETE',

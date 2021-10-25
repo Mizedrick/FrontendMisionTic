@@ -11,23 +11,31 @@ function validar(){
     //obtiene valores
     let id = $("#id").val();
     let messagetext = $("#messagetext").val();
-    let errores="";
+    let client = $("#client").val();
+    let bike = $("#bike").val();
+    let errores = "";
     $("#mensajes").html("");
 
     //valida que los campos no sean vacios
-    if( validaesVacio(id)) {
-        errores="id vacio<br>";
+    if (validaesVacio(client)) {
+        errores = "Debe seleccionar un cliente<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
-        $("#id").focus();
+        $("#client").focus();
         return false;
-    }else if( validaesVacio(messagetext)) {
-        errores="messagetext vacio<br>";
+    } else if (validaesVacio(bike)) {
+        errores = "Debe seleccionar una bicicleta<br>";
         $("#mensajes").html(errores);
         $("#mensajes").show(500);
-        $("#name").focus();
+        $("#bike").focus();
         return false;
-    }else{
+    } else if (validaesVacio(messagetext)) {
+        errores = "Debe ingresar el texto del mensaje<br>";
+        $("#mensajes").html(errores);
+        $("#mensajes").show(500);
+        $("#messagetext").focus();
+        return false;
+    } else {
         $("#mensajes").html("");
         $("#mensajes").hide(500);
         return true;
@@ -68,4 +76,10 @@ function validar(){
     }
 
     return true;
+}
+
+function upperCaseF(campo) {
+    setTimeout(function () {
+        campo.value = campo.value.toUpperCase();
+    }, 1);
 }

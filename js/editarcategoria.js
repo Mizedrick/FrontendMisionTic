@@ -2,11 +2,11 @@
  * Invoca peticion WS GET con parametro (id) para recuperar información del registro
  * y pintar información en el formulario de edición
  */
-function editarRegistro(llaveRegistro) {
+ function editarRegistro(llaveRegistro) {
 
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "http://localhost:8081/api/Client/" + llaveRegistro,
+        url: "http://localhost:8081/api/Category/" + llaveRegistro,
 
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
@@ -52,10 +52,9 @@ function editarRegistro(llaveRegistro) {
     
 */
 function editarRespuesta(items) {
-    $("#idEdit").val(items.idClient);
+    $("#idEdit").val(items.id);
     $("#nameEdit").val(items.name);
-    $("#passwordEdit").val(items.password);
-    $("#ageEdit").val(items.age);
+    $("#descriptionEdit").val(items.description);  
 }
 
 //Esta función ejecuta la petición asincrona al servidor de Oracle, envia una
@@ -64,10 +63,9 @@ function actualizar() {
 
     //crea un objeto javascript
     let datos = {
-        idClient: $("#idEdit").val(),
+        id: $("#idEdit").val(),
         name: $("#nameEdit").val(),
-        password: $("#passwordEdit").val(),
-        age: $("#ageEdit").val()        
+        description: $("#descriptionEdit").val(),
     }
 
     //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
@@ -76,7 +74,7 @@ function actualizar() {
     if (validarEditar()) {
         $.ajax({
             // la URL para la petición (url: "url al recurso o endpoint")
-            url: "http://localhost:8081/api/Client/update",
+            url: "http://localhost:8081/api/Category/update",
 
             // la información a enviar
             // (también es posible utilizar una cadena de datos)

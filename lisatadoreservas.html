@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas</title>
+    <link rel="stylesheet" href="css/stylesBicis.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="js/listarReservas.js"></script>
+    <script src="js/registrarReservas.js"></script>
+    <script src="js/editarreservas.js"></script>
+    <script src="js/borrarreservas.js"></script>
+    <script src="js/funcionesReservas.js"></script>
+</head>
+
+<body>
+    <header>
+        <section>
+            <h1>Mision Tic 2022</h1>
+        </section>
+
+        <!-- en el elemento identificado con el id 'Reservas' se mostraran los Reservas
+             o resultado de ejecutar la peticion
+        -->
+        <div id="mensajes"></div>
+        <br>
+        <a href="index.html"><img src="Imag/back.png" alt="Regresar"></a>
+        <br><br>
+        <button class="botones" id="nuevoRegistro" onclick="activaNuevo();">Registrar Reserva</button>
+        <br><br>
+
+        <!--aqui se actualizara el listado -->
+        <div id="listado"></div>
+
+        <!-- Seccion para nuevos registros-->
+        <div id="nuevo">
+            <section class="formularioRegistro">
+                <h4>Registrar Reserva</h4>
+                <input class="inputs" type="date" data-date-format="YYYY-MM-DD" id="startDate" placeholder="YYYY-MM-DD">
+                <input class="inputs" type="date" data-date-format="YYYY-MM-DD" id="devolutionDate"
+                    placeholder="YYYY-MM-DD">
+                <select class="inputs" id="client" placeholder="Cliente">
+
+                </select>
+                <select class="inputs" id="bike" placeholder="Bicicleta">
+
+                </select>
+                <button class="botones" onclick="registrar();">Guardar</button>
+                <button class="botones" onclick="estadoInicial();">Cancelar</button>
+            </section>
+        </div>
+        <!-- Seccion para editar registros-->
+        <div id="editar">
+            <section class="formularioRegistro">
+                <h4>Editar Reserva</h4>
+                <input class="inputs" type="number" id="idEdit" placeholder="id">
+                <input class="inputs" type="date" data-date-format="YYYY-MM-DD" id="startDateEdit"
+                    placeholder="YYYY-MM-DD">
+                <input class="inputs" type="date" data-date-format="YYYY-MM-DD" id="devolutionDateEdit"
+                    placeholder="YYYY-MM-DD">
+                <select class="inputs" id="statusEdit" aria-placeholder="status">
+                    <option value="">Selecciona un Status</option>
+                    <option value="created">Reserva Programada</option>
+                    <option value="cancelado">Reserva Cancelada</option>
+                    <option value="Realizado">Reserva Realizada</option>
+                </select>
+                <button class="botones" onclick="actualizar();">Editar</button>
+                <button class="botones" onclick="estadoInicial();">Cancelar</button>
+            </section>
+        </div>
+    </header>
+</body>
+
+</html>

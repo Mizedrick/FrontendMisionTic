@@ -33,10 +33,10 @@
         <div id="nuevo">
             <section class="formularioRegistro">
                 <h4>Registrar Cliente</h4>
-                <input class="inputs" type="number" id="id" placeholder="id">
-                <input class="inputs" type="text" id="name" placeholder="name">
-                <input class="inputs" type="email" id="email" placeholder="email">
-                <input class="inputs" type="number" id="age" placeholder="age">
+                <input class="inputs" type="text" id="name" placeholder="Nombre" onkeydown="upperCaseF(this)">
+                <input class="inputs" type="email" id="email" placeholder="Correo Electrónico">
+                <input class="inputs" type="password" id="password" placeholder="Contraseña">
+                <input class="inputs" type="number" id="age" placeholder="Edad">
                 <button class="botones" onclick="registrar();">Guardar</button>
                 <button class="botones" onclick="estadoInicial();">Cancelar</button>
             </section>
@@ -45,9 +45,9 @@
             <section class="formularioRegistro">
                 <h4>Editar Cliente</h4>
                 <input class="inputs" type="number" id="idEdit" placeholder="id">
-                <input class="inputs" type="text" id="nameEdit" placeholder="name">
-                <input class="inputs" type="text" id="emailEdit" placeholder="email">
-                <input class="inputs" type="number" id="ageEdit" placeholder="age">
+                <input class="inputs" type="text" id="nameEdit" placeholder="Nombre" onkeydown="upperCaseF(this)">
+                <input class="inputs" type="number" id="ageEdit" placeholder="Edad">
+                <input class="inputs" type="password" id="passwordEdit" placeholder="Contraseña">
                 <button class="botones" onclick="actualizar();">Guardar</button>
                 <button class="botones" onclick="estadoInicial();">Cancelar</button>
             </section>

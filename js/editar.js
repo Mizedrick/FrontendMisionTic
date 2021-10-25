@@ -3,17 +3,10 @@
  * y pintar información en el formulario de edición
  */
  function editarRegistro(llaveRegistro) {
-    //crea un objeto javascript
-    let datos = {
-        id: llaveRegistro
-    }
-
-    //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
-    let datosPeticion = JSON.stringify(datos);
 
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "https://gf7c124a9e6c768-db202109231826.adb.sa-vinhedo-1.oraclecloudapps.com/ords/admin/bike/bike/" + llaveRegistro,
+        url: "http://localhost:8081/api/Bike/" + llaveRegistro,
 
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
@@ -36,7 +29,7 @@
             $("#mensajes").show(1000);
             $("#mensajes").html("Información recuperada...");
             $("#mensajes").hide(1000);
-            editarRespuesta(respuesta.items);
+            editarRespuesta(respuesta);
             activaEditar();
         },
 
@@ -59,11 +52,11 @@
     
 */
 function editarRespuesta(items) {
-    $("#idEdit").val(items[0].id);
-    $("#nameEdit").val(items[0].name);
-    $("#brandEdit").val(items[0].brand);
-    $("#modelEdit").val(items[0].model);
-    $("#categoryEdit").val(items[0].category_id);    
+    $("#idEdit").val(items.id);
+    $("#nameEdit").val(items.name);
+    $("#brandEdit").val(items.brand);
+    $("#modelEdit").val(items.year);
+    $("#descriptionEdit").val(items.description);
 }
 
 //Esta función ejecuta la petición asincrona al servidor de Oracle, envia una
@@ -73,10 +66,10 @@ function actualizar() {
     //crea un objeto javascript
     let datos = {
         id: $("#idEdit").val(),
+        name: $("#nameEdit").val(),
         brand: $("#brandEdit").val(),
-        model: $("#modelEdit").val(),
-        category_id: $("#categoryEdit").val(),
-        name: $("#nameEdit").val()
+        year: $("#modelEdit").val(),
+        description: $("#descriptionEdit").val()
     }
 
     //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
@@ -85,7 +78,7 @@ function actualizar() {
     if (validarEditar()) {
         $.ajax({
             // la URL para la petición (url: "url al recurso o endpoint")
-            url: "https://gf7c124a9e6c768-db202109231826.adb.sa-vinhedo-1.oraclecloudapps.com/ords/admin/bike/bike",
+            url: "http://localhost:8081/api/Bike/update",
 
             // la información a enviar
             // (también es posible utilizar una cadena de datos)

@@ -1,19 +1,12 @@
 /**
  * Invoca peticion WS GET con parametro (id) para recuperar información del registro
  * y pintar información en el formulario de edición
- */
+ */ 
 function editarRegistro(llaveRegistro) {
-    //crea un objeto javascript
-    let datos = {
-        id: llaveRegistro
-    }
-
-    //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
-    let datosPeticion = JSON.stringify(datos);
 
     $.ajax({
         // la URL para la petición (url: "url al recurso o endpoint")
-        url: "https://gf7c124a9e6c768-db202109231826.adb.sa-vinhedo-1.oraclecloudapps.com/ords/admin/message/message/" + llaveRegistro,
+        url: "http://localhost:8081/api/Message/" + llaveRegistro,
 
         // la información a enviar
         // (también es posible utilizar una cadena de datos)
@@ -36,7 +29,7 @@ function editarRegistro(llaveRegistro) {
             $("#mensajes").show(1000);
             $("#mensajes").html("Información recuperada...");
             $("#mensajes").hide(1000);
-            editarRespuesta(respuesta.items);
+            editarRespuesta(respuesta);
             activaEditar();
         },
 
@@ -45,7 +38,7 @@ function editarRegistro(llaveRegistro) {
         // el objeto de la petición en crudo y código de estatus de la petición
         error: function (xhr, status) {
             $("#mensajes").show(1000);
-            $("#mensajes").html("Error peticion GET..." + status);
+            $("#mensajes").html("Error peticion PUT..." + status);
             //$("#mensajes").hide(1000);
         }
     });
@@ -59,8 +52,8 @@ function editarRegistro(llaveRegistro) {
     
 */
 function editarRespuesta(items) {
-    $("#idEdit").val(items[0].id);
-    $("#messagetextEdit").val(items[0].messagetext);
+    $("#idEdit").val(items.idMessage);
+    $("#messagetextEdit").val(items.messageText);
 }
 
 //Esta función ejecuta la petición asincrona al servidor de Oracle, envia una
@@ -69,8 +62,8 @@ function actualizar() {
 
     //crea un objeto javascript
     let datos = {
-        id: $("#idEdit").val(),
-        messagetext: $("#messagetextEdit").val()
+        idMessage: $("#idEdit").val(),
+        messageText: $("#messagetextEdit").val()
     }
 
     //convierte el objeto javascript a json antes de agregarlo a los datos de la petición
@@ -79,7 +72,7 @@ function actualizar() {
     if (validarEditar()) {
         $.ajax({
             // la URL para la petición (url: "url al recurso o endpoint")
-            url: "https://gf7c124a9e6c768-db202109231826.adb.sa-vinhedo-1.oraclecloudapps.com/ords/admin/message/message",
+            url: "http://localhost:8081/api/Message/update",
 
             // la información a enviar
             // (también es posible utilizar una cadena de datos)

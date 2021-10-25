@@ -1,0 +1,44 @@
+Modulo client
+	Plantilla client
+	GET:
+		SELECT * FROM CLIENT
+	POST:
+		BEGIN
+    		INSERT INTO CLIENT (ID, NAME, EMAIL, AGE) VALUES(:id, :name, :email, :age);
+		:status_code:=201;
+		END;
+	PUT:
+		BEGIN
+    		UPDATE CLIENT SET NAME =:name, EMAIL =:email, AGE =:age WHERE ID =:id;
+    		:status_code :=201;
+		END;
+	DELETE:
+		BEGIN
+    		DELETE FROM CLIENT WHERE ID =:id;
+		:STATUS_CODE :=204;
+		END;
+	Plantilla client/:id
+	GET:
+		SELECT * FROM CLIENT WHERE ID =:id
+Modulo message
+	Plantilla message
+	GET:
+		SELECT * FROM MESSAGE
+	POST:
+		BEGIN
+    		INSERT INTO MESSAGE (ID,MESSAGETEXT) VALUES (:id,:messagetext);
+    		:STATUS_CODE:=201;
+		END;
+	PUT:
+		BEGIN
+    		UPDATE MESSAGE SET MESSAGETEXT =:messagetext WHERE ID =:id;
+    		:STATUS_CODE:=201;
+		END;
+	DELETE:
+		BEGIN
+    		DELETE FROM MESSAGE WHERE ID =:id;
+		:STATUS_CODE :=204;
+		END;
+	Plantilla message/:id
+	GET:
+		SELECT * FROM MESSAGE WHERE ID =:id

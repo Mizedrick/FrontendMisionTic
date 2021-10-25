@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bicicletas</title>
+    <title>Categorias</title>
     <link rel="stylesheet" href="css/stylesBicis.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="js/listar.js"></script>
-    <script src="js/registrar.js"></script>
-    <script src="js/editar.js"></script>
-    <script src="js/borrar.js"></script>
-    <script src="js/funciones.js"></script>
+    <script src="js/listarcategorias.js"></script>
+    <script src="js/registrarcategoria.js"></script>
+    <script src="js/editarcategoria.js"></script>
+    <script src="js/borrarcategorias.js"></script>
+    <script src="js/funcionescategoria.js"></script>
 </head>
 
 <body>
@@ -20,38 +20,37 @@
         <section>
             <h1>Mision Tic 2022</h1>
         </section>
+
+        <!-- en el elemento identificado con el id 'mensajes' se mostraran los mensajes
+             o resultado de ejecutar la peticion
+        -->
         <div id="mensajes"></div>
         <br>
         <a href="index.html"><img src="Imag/back.png" alt="Regresar"></a>
         <br><br>
-        <button class="botones" id="nuevoRegistro" onclick="activaNuevo();">Registrar Bici</button>
+        <button class="botones" id="nuevoRegistro" onclick="activaNuevo();">Registrar Categoría</button>
         <br><br>
+
+        <!--aqui se actualizara el listado -->
         <div id="listado"></div>
 
+        <!-- Seccion para nuevos registros-->
         <div id="nuevo">
             <section class="formularioRegistro">
-                <h4>Registrar Bicicleta</h4>
+                <h4>Registrar Categoría</h4>
                 <input class="inputs" type="text" id="name" placeholder="Nombre" onkeydown="upperCaseF(this)">
-                <input class="inputs" type="text" id="brand" placeholder="Marca" onkeydown="upperCaseF(this)">
-                <input class="inputs" type="number" id="model" placeholder="Modelo">
-                <select class="inputs" name="category" id="category" placeholder="Categoría">
-                </select>
                 <textarea class="inputs" id="description" placeholder="Descripción" rows="4" cols="50"
                     onkeydown="upperCaseF(this)"></textarea>
-
                 <button class="botones" onclick="registrar();">Guardar</button>
                 <button class="botones" onclick="estadoInicial();">Cancelar</button>
             </section>
-
         </div>
-
+        <!-- Seccion para editar registros-->
         <div id="editar">
             <section class="formularioRegistro">
-                <h4>Editar Bicicleta</h4>
-                <input class="inputs" type="number" id="idEdit" placeholder="id">
-                <input class="inputs" type="text" id="nameEdit" placeholder="Nombre" onkeydown="upperCaseF(this)">
-                <input class="inputs" type="text" id="brandEdit" placeholder="Marca" onkeydown="upperCaseF(this)">
-                <input class="inputs" type="number" id="modelEdit" placeholder="Modelo">
+                <h4>Editar Categoría</h4>
+                <input class="inputs" type="text" id="idEdit" placeholder="id">
+                <input class="inputs" type="text" id="nameEdit" placeholder="idEdit" onkeydown="upperCaseF(this)">
                 <textarea class="inputs" id="descriptionEdit" placeholder="Descripción" rows="4" cols="50"
                     onkeydown="upperCaseF(this)"></textarea>
                 <button class="botones" onclick="actualizar();">Editar</button>
